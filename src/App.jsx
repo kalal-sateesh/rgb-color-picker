@@ -4,6 +4,7 @@ function App() {
   const [red, setRed] = useState(50);
   const [green, setGreen] = useState(100);
   const [blue, setBlue] = useState(15);
+  const [opacity, setOpacity] = useState(0.5);
 
   const handleInputR = (e) => {
     setRed(e.target.value);
@@ -17,12 +18,17 @@ function App() {
     setBlue(e.target.value);
   };
 
+  const handleInputOpacity = (e) => {
+    const opc = e.target.value / 100;
+    setOpacity(opc);
+  };
+
   return (
     <div className="container">
       <h1 style={{ marginTop: "20px" }}>rgb_colors</h1>
       <div
         style={{
-          backgroundColor: `rgb(${red},${green},${blue})`,
+          backgroundColor: `rgba(${red},${green},${blue},${opacity})`,
           width: "200px",
           height: "200px",
           borderRadius: "100px",
@@ -61,7 +67,17 @@ function App() {
       />
       <br></br>
       <br></br>
-      <h1>rgb - {`(${red},${green},${blue})`}</h1>
+      <input
+        type="range"
+        className="input"
+        min="0"
+        max="100"
+        onChange={(e) => handleInputOpacity(e)}
+      />
+      <br></br>
+      <br></br>
+
+      <h1>rgba - {`(${red},${green},${blue},${opacity})`}</h1>
     </div>
   );
 }
