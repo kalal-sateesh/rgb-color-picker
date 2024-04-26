@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "./App.css";
 function App() {
-  const [red, setRed] = useState(10);
-  const [green, setGreen] = useState(10);
-  const [blue, setBlue] = useState(10);
+  const [red, setRed] = useState(50);
+  const [green, setGreen] = useState(100);
+  const [blue, setBlue] = useState(15);
 
   const handleInputR = (e) => {
     setRed(e.target.value);
@@ -61,7 +61,7 @@ function App() {
       />
       <br></br>
       <br></br>
-      <h1>rgb{`(${red},${green},${blue})`}</h1>
+      <h1>rgb - {`(${red},${green},${blue})`}</h1>
     </div>
   );
 }
